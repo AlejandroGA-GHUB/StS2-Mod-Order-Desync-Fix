@@ -46,6 +46,9 @@ events and orbs.
 Vanilla behavior is unchanged: base-game content keeps its order, and with no modded content in
 a list, nothing changes.
 
+Tested on game version v0.113.1 in co-op with players whose mod load orders differ: Splash and
+The Lovers no longer cause a divergence when they hand out modded cards.
+
 ## Install
 
 Subscribe on the Steam Workshop, or install it by hand:
@@ -71,8 +74,16 @@ Both players should see the same line.
 
 Your mods are the same but some content is still in a different order. Each player's log has a
 block starting `Content order fingerprint`. Compare it between the two logs; the first line that
-differs names the list that is out of order (e.g. `act-events:ACT.…`). Please open an issue with
-both blocks.
+differs names the list that is out of order (e.g. `act-events:ACT.…`). Please
+[open an issue](https://github.com/AlejandroGA-GHUB/StS2-Mod-Order-Desync-Fix/issues) with both
+blocks.
+
+## Reporting a desync
+
+If you still get a state divergence with this mod installed, please
+[open an issue](https://github.com/AlejandroGA-GHUB/StS2-Mod-Order-Desync-Fix/issues) with both
+players' `godot.log` from `%APPDATA%\SlayTheSpire2\logs\` and the card or action that triggered it.
+Divergences can have causes unrelated to load order, so the logs are what tell them apart.
 
 ## Build
 
@@ -98,3 +109,8 @@ runtimes it is reported as skipped.
   patch on the same lists, regardless of load order.
 - Does not change saves. Adding it mid-run is safe for that run's sync, though random picks from
   modded content will differ from what they would have been without it.
+- Requires game version 0.113.0 or newer.
+
+## License
+
+[MIT](LICENSE).
