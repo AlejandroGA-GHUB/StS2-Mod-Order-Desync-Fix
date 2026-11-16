@@ -32,7 +32,6 @@
     <Reference Include="sts2" HintPath="$(Sts2DataDir)\sts2.dll" Private="false" />
     <Reference Include="0Harmony" HintPath="$(Sts2DataDir)\0Harmony.dll" Private="false" />
     <Reference Include="GodotSharp" HintPath="$(Sts2DataDir)\GodotSharp.dll" Private="false" />
-    <Reference Include="System.IO.Hashing" HintPath="$(Sts2DataDir)\System.IO.Hashing.dll" Private="false" />
   </ItemGroup>
 
   <ItemGroup>

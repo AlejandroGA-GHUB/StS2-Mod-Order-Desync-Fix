@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="..\..\src\MultiplayerDivergenceResolver\CanonicalOrder.cs" Link="Linked\CanonicalOrder.cs" />
     <Compile Include="..\..\src\MultiplayerDivergenceResolver\ContentKey.cs" Link="Linked\ContentKey.cs" />
+    <Compile Include="..\..\src\MultiplayerDivergenceResolver\OrderFingerprint.cs" Link="Linked\OrderFingerprint.cs" />
     <Compile Include="..\..\src\MultiplayerDivergenceResolver\Patches\PatchOrder.cs" Link="Linked\PatchOrder.cs" />
   </ItemGroup>
 
