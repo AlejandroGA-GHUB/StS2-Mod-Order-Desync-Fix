@@ -63,4 +63,8 @@ mechanism but have not had a dedicated repro of their own.
 2. If the game version moved, re-check the patch targets still resolve and update
    `min_game_version`.
 3. `dotnet build -c Release` and `dotnet test`. The build writes `dist/ModOrderDesyncFix-<version>.zip`.
-4. Workshop uploads use Mega Crit's uploader (github.com/megacrit/sts2-mod-uploader).
+4. Workshop uploads use Mega Crit's uploader (github.com/megacrit/sts2-mod-uploader). The item is
+   https://steamcommunity.com/sharedfiles/filedetails/?id=3841017147 (public since 2026-11-16).
+   Updates go through the SAME uploader workspace, whose `mod_id.txt` holds that id; without it
+   the uploader creates a new item. Replace the two files in its `content/`, set `changeNote`,
+   keep `"visibility": "public"`, and run `ModUploader.exe upload -w <workspace>`.
