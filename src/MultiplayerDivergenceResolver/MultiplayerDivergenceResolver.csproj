@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>MultiplayerDivergenceResolver</RootNamespace>
+    <!-- The game loads "<manifest id>.dll", so the assembly name must match the manifest id. -->
+    <AssemblyName>MultiplayerDivergenceResolver</AssemblyName>
+    <Version>0.1.0</Version>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <!-- sts2.dll and its dependencies are resolved from the game install; version conflicts are expected. -->
+    <NoWarn>MSB3277</NoWarn>
+    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+
+  <!--
+    Game install location. Override on the command line if the game lives elsewhere:
+      dotnet build -p:Sts2Dir="D:\SteamLibrary\steamapps\common\Slay the Spire 2"
+  -->
+  <PropertyGroup>
+    <Sts2Dir Condition="'$(Sts2Dir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
+    <Sts2DataDir>$(Sts2Dir)\data_sts2_windows_x86_64</Sts2DataDir>
+    <!-- Set -p:DeployToGame=true to copy the built mod into the game's mods folder. -->
+    <DeployToGame Condition="'$(DeployToGame)' == ''">false</DeployToGame>
+    <ModDeployDir>$(Sts2Dir)\mods\$(AssemblyName)</ModDeployDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="sts2" HintPath="$(Sts2DataDir)\sts2.dll" Private="false" />
+    <Reference Include="0Harmony" HintPath="$(Sts2DataDir)\0Harmony.dll" Private="false" />
+    <Reference Include="GodotSharp" HintPath="$(Sts2DataDir)\GodotSharp.dll" Private="false" />
+    <Reference Include="System.IO.Hashing" HintPath="$(Sts2DataDir)\System.IO.Hashing.dll" Private="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(AssemblyName).json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="MultiplayerDivergenceResolver.Tests" />
+  </ItemGroup>
+
+  <Target Name="DeployMod" AfterTargets="Build" Condition="'$(DeployToGame)' == 'true'">
+    <MakeDir Directories="$(ModDeployDir)" />
+    <Copy SourceFiles="$(TargetPath);$(OutDir)$(AssemblyName).json" DestinationFolder="$(ModDeployDir)" />
+    <Message Importance="high" Text="Deployed $(AssemblyName) to $(ModDeployDir)" />
+  </Target>
+
+</Project>

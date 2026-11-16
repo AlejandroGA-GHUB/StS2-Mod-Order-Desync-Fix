@@ -1,0 +1,24 @@
+# Build output
+bin/
+obj/
+dist/
+*.user
+
+# Editor and IDE state
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Decompiled game or mod source. NEVER commit this; it is other people's copyrighted code.
+# Decompile locally with:  ilspycmd -p -o <dir> "<install>\data_sts2_windows_x86_64\sts2.dll"
+sts2src/
+decompiled/
+*.pck
+
+# Game logs and divergence dumps used for investigation
+*.log
+ritsulib_state_divergence_*.zip
