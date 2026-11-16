@@ -48,8 +48,15 @@ a list, nothing changes.
 
 ## Install
 
-Copy `ModOrderDesyncFix.dll` and `ModOrderDesyncFix.json` into
-`<Slay the Spire 2>\mods\ModOrderDesyncFix\`, or subscribe on the Steam Workshop.
+Subscribe on the Steam Workshop, or install it by hand:
+
+1. Extract `ModOrderDesyncFix-<version>.zip` into `<Slay the Spire 2>\mods\`, so you end up with
+   `mods\ModOrderDesyncFix\ModOrderDesyncFix.dll` and `ModOrderDesyncFix.json`.
+   (The usual location is `C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2\mods\`;
+   create the `mods` folder if it does not exist.)
+2. Start the game. New mods are enabled by default.
+
+Every player in the lobby must install the same version.
 
 To confirm it loaded, look in
 `%APPDATA%\SlayTheSpire2\logs\godot.log` for:
@@ -75,6 +82,8 @@ Requires the .NET 9 SDK (or newer) and a local install of the game.
 dotnet build -c Release
 dotnet test
 ```
+
+A Release build also writes the shareable `dist\ModOrderDesyncFix-<version>.zip`.
 
 The game install path defaults to the standard Steam location. Override it with
 `-p:Sts2Dir="D:\SteamLibrary\steamapps\common\Slay the Spire 2"`. Add `-p:DeployToGame=true` to
