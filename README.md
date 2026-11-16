@@ -5,6 +5,8 @@ happens when players have the same mods installed but **loaded in a different or
 
 **Every player in the lobby needs it.** It is marked as gameplay-affecting, so the game enforces that.
 
+**[Get it on the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841017147)**
+
 ## The problem
 
 Cards like **Splash** and **The Lovers** give you a random card from *another character's* pool.
@@ -51,7 +53,8 @@ The Lovers no longer cause a divergence when they hand out modded cards.
 
 ## Install
 
-Subscribe on the Steam Workshop, or install it by hand:
+[Subscribe on the Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3841017147)
+(the game installs and updates it for you), or install it by hand:
 
 1. Extract `ModOrderDesyncFix-<version>.zip` into `<Slay the Spire 2>\mods\`, so you end up with
    `mods\ModOrderDesyncFix\ModOrderDesyncFix.dll` and `ModOrderDesyncFix.json`.
