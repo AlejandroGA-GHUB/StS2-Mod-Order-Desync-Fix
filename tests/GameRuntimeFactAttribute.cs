@@ -1,4 +1,4 @@
-namespace MultiplayerDivergenceResolver.Tests;
+namespace ModOrderDesyncFix.Tests;
 
 /// <summary>
 /// A test that needs the runtime the game itself uses (.NET 9). The Harmony build the game ships

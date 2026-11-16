@@ -1,4 +1,4 @@
-namespace MultiplayerDivergenceResolver;
+namespace ModOrderDesyncFix;
 
 /// <summary>
 /// The sort key for one modded model. Compares the same way the game's own

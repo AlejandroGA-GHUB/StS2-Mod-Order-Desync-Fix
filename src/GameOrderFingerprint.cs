@@ -2,7 +2,7 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 
-namespace MultiplayerDivergenceResolver;
+namespace ModOrderDesyncFix;
 
 /// <summary>
 /// Builds the <see cref="OrderFingerprint"/> sections from the live game content: every list that

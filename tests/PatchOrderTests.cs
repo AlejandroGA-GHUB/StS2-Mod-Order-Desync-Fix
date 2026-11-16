@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
 using HarmonyLib;
-using MultiplayerDivergenceResolver.Patches;
+using ModOrderDesyncFix.Patches;
 
-namespace MultiplayerDivergenceResolver.Tests;
+namespace ModOrderDesyncFix.Tests;
 
 /// <summary>
 /// Our ordering postfix only works if it runs after every other mod's postfix, including mods that

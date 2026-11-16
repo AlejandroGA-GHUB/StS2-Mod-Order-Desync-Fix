@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace MultiplayerDivergenceResolver;
+namespace ModOrderDesyncFix;
 
 /// <summary>
 /// A hash of content ORDER: the IDs of each list, in the order the game will index them.

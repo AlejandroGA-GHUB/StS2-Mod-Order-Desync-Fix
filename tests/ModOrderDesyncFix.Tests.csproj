@@ -11,8 +11,8 @@
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
-    <AssemblyName>MultiplayerDivergenceResolver.Tests</AssemblyName>
-    <RootNamespace>MultiplayerDivergenceResolver.Tests</RootNamespace>
+    <AssemblyName>ModOrderDesyncFix.Tests</AssemblyName>
+    <RootNamespace>ModOrderDesyncFix.Tests</RootNamespace>
     <NoWarn>MSB3277</NoWarn>
     <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
   </PropertyGroup>
@@ -33,10 +33,10 @@
 
   <!-- Game-free source files are compiled in directly, so the tests never load sts2.dll. -->
   <ItemGroup>
-    <Compile Include="..\..\src\MultiplayerDivergenceResolver\CanonicalOrder.cs" Link="Linked\CanonicalOrder.cs" />
-    <Compile Include="..\..\src\MultiplayerDivergenceResolver\ContentKey.cs" Link="Linked\ContentKey.cs" />
-    <Compile Include="..\..\src\MultiplayerDivergenceResolver\OrderFingerprint.cs" Link="Linked\OrderFingerprint.cs" />
-    <Compile Include="..\..\src\MultiplayerDivergenceResolver\Patches\PatchOrder.cs" Link="Linked\PatchOrder.cs" />
+    <Compile Include="..\src\CanonicalOrder.cs" Link="Linked\CanonicalOrder.cs" />
+    <Compile Include="..\src\ContentKey.cs" Link="Linked\ContentKey.cs" />
+    <Compile Include="..\src\OrderFingerprint.cs" Link="Linked\OrderFingerprint.cs" />
+    <Compile Include="..\src\Patches\PatchOrder.cs" Link="Linked\PatchOrder.cs" />
   </ItemGroup>
 
   <!-- The same Harmony build the game ships, so the patch-order test checks real behavior. -->

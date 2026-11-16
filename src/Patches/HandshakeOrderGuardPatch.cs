@@ -2,7 +2,7 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Multiplayer;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 /// <summary>
 /// Folds the content order fingerprint into the model ID hash the handshake already compares, so

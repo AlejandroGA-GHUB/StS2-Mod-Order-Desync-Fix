@@ -5,9 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>MultiplayerDivergenceResolver</RootNamespace>
+    <RootNamespace>ModOrderDesyncFix</RootNamespace>
     <!-- The game loads "<manifest id>.dll", so the assembly name must match the manifest id. -->
-    <AssemblyName>MultiplayerDivergenceResolver</AssemblyName>
+    <AssemblyName>ModOrderDesyncFix</AssemblyName>
     <Version>0.1.0</Version>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <InternalsVisibleTo Include="MultiplayerDivergenceResolver.Tests" />
+    <InternalsVisibleTo Include="ModOrderDesyncFix.Tests" />
   </ItemGroup>
 
   <Target Name="DeployMod" AfterTargets="Build" Condition="'$(DeployToGame)' == 'true'">

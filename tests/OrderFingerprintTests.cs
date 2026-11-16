@@ -1,4 +1,4 @@
-namespace MultiplayerDivergenceResolver.Tests;
+namespace ModOrderDesyncFix.Tests;
 
 public class OrderFingerprintTests
 {

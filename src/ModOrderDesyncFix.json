@@ -1,6 +1,6 @@
 {
-  "id": "MultiplayerDivergenceResolver",
-  "name": "Multiplayer Divergence Resolver",
+  "id": "ModOrderDesyncFix",
+  "name": "Mod Order Desync Fix",
   "author": "Texin",
   "description": "Fixes multiplayer state divergence caused by players loading mods in different orders. Modded characters and modded pool content are put in one fixed order on every machine, so effects that pick a random card from another character (Splash, The Lovers, ...) roll the same card for everyone. Every player in the lobby needs it.",
   "version": "0.1.0",

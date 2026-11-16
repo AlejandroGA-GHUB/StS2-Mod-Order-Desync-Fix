@@ -1,4 +1,4 @@
-# Multiplayer Divergence Resolver
+# Mod Order Desync Fix
 
 Slay the Spire 2 mod (C#, Harmony) fixing multiplayer state divergence caused by players loading
 the same mods in a different order. Intended to be open source and published on the Steam Workshop.

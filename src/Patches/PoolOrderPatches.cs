@@ -1,7 +1,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 // Pools append content that mods register through ModHelper.AddModelToPool in the order those calls
 // happened, which is each player's mod load order. Mods that patch a pool's GenerateAllX instead

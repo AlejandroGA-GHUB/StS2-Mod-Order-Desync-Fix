@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 
-namespace MultiplayerDivergenceResolver;
+namespace ModOrderDesyncFix;
 
 /// <summary>
 /// Applies <see cref="CanonicalOrder"/> to game models, ordering modded models by

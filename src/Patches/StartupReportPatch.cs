@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Multiplayer.Serialization;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 /// <summary>
 /// Logs the final character order once the game has finished loading every mod's content, so two

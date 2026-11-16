@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 internal static class PatchOrder
 {

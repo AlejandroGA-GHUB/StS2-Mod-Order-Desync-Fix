@@ -1,4 +1,4 @@
-# Multiplayer Divergence Resolver
+# Mod Order Desync Fix
 
 A Slay the Spire 2 mod that fixes a class of **multiplayer state divergence** ("desync") that
 happens when players have the same mods installed but **loaded in a different order**.
@@ -48,14 +48,14 @@ a list, nothing changes.
 
 ## Install
 
-Copy `MultiplayerDivergenceResolver.dll` and `MultiplayerDivergenceResolver.json` into
-`<Slay the Spire 2>\mods\MultiplayerDivergenceResolver\`, or subscribe on the Steam Workshop.
+Copy `ModOrderDesyncFix.dll` and `ModOrderDesyncFix.json` into
+`<Slay the Spire 2>\mods\ModOrderDesyncFix\`, or subscribe on the Steam Workshop.
 
 To confirm it loaded, look in
 `%APPDATA%\SlayTheSpire2\logs\godot.log` for:
 
 ```
-[MultiplayerDivergenceResolver] Character order: IRONCLAD, SILENT, …
+[ModOrderDesyncFix] Character order: IRONCLAD, SILENT, …
 ```
 
 Both players should see the same line.

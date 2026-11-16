@@ -1,4 +1,4 @@
-namespace MultiplayerDivergenceResolver;
+namespace ModOrderDesyncFix;
 
 /// <summary>
 /// Puts a content list in an order that depends only on WHICH items are in it, never on the order

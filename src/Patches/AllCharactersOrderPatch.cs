@@ -1,7 +1,7 @@
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 /// <summary>
 /// Character mods append themselves to <see cref="ModelDb.AllCharacters"/> with Harmony postfixes,

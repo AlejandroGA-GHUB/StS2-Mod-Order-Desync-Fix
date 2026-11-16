@@ -2,7 +2,7 @@ using System.Reflection;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 
-namespace MultiplayerDivergenceResolver.Patches;
+namespace ModOrderDesyncFix.Patches;
 
 // The ModelDb lists that are not tied to a character, which mods extend with postfixes the same
 // way they extend AllCharacters: shared card/relic/potion pools, shared events and ancients, the
