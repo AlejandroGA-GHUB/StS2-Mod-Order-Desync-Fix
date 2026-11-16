@@ -1,8 +1,15 @@
 # Mod Order Desync Fix
 
 Slay the Spire 2 mod (C#, Harmony) fixing multiplayer state divergence caused by players loading
-the same mods in a different order. Intended to be open source and published on the Steam Workshop.
-README.md explains it for users; this file is for whoever works on it next.
+the same mods in a different order. Open source (MIT), distributed through GitHub and the Steam
+Workshop. README.md explains it for users; this file is for whoever works on it next.
+
+## Status
+
+Verified in game on v0.113.1 (2026-11-16): a two-player session with mismatched mod load orders
+(Watcher vs the CZN characters) no longer diverges when Splash / The Lovers hand out modded cards.
+That is the case this mod was built for. The pool, shared-list and lobby-guard parts follow the same
+mechanism but have not had a dedicated repro of their own.
 
 ## Root cause (established 2026-11-15, do not re-derive)
 
@@ -16,8 +23,9 @@ README.md explains it for users; this file is for whoever works on it next.
   `AllCharacters` order) and pick by RNG index (`CardFactory.GetDistinctForCombat` /
   `GetForCombat`). Same roll, different list, different card. Divergence only surfaces when the
   chosen card is modded, since vanilla characters lead the list on every machine.
-- Evidence: user's godot.log (The Lovers: host WATCHER_CRUSH_JOINTS vs client NINE_INSTINCT) and
-  five RitsuLib divergence reports (all Splash) that list both peers' load orders, which differ.
+- Evidence: a co-op session's godot.log (The Lovers: host WATCHER_CRUSH_JOINTS vs client
+  NINE_INSTINCT) and five RitsuLib divergence reports (all Splash) that list both peers' load
+  orders, which differ.
 - The handshake's `ModelIdSerializationCache.Hash` sorts IDs (`ContentSorter`) before hashing, so
   it is order-blind and never catches this.
 - `ModHelper.ConcatModelsFromMods` appends `AddModelToPool` content in call order: same flaw for pools.
@@ -44,8 +52,15 @@ README.md explains it for users; this file is for whoever works on it next.
   never load sts2.dll. The Harmony test needs the .NET 9 runtime (skips otherwise).
 - Init order in game: `ModManager.Initialize` -> `AssemblyInfo.Init` -> `ModelDb.Init` ->
   `ModelIdSerializationCache.Init` (`OneTimeInitialization`).
-- Mod DLL must be named `<manifest id>.dll`.
+- Mod DLL must be named `<manifest id>.dll`. The id (`ModOrderDesyncFix`) must never change after
+  release: lobbies match mods by id, and the Workshop item is tied to it.
 
-## Not yet verified
+## Releasing
 
-- In-game run of the built mod, and a real two-player session with mismatched load orders.
+1. Bump the version in BOTH `src/ModOrderDesyncFix.csproj` (`<Version>`) and
+   `src/ModOrderDesyncFix.json` (`"version"`). The lobby compares mod versions, so every player must
+   be on the same one.
+2. If the game version moved, re-check the patch targets still resolve and update
+   `min_game_version`.
+3. `dotnet build -c Release` and `dotnet test`. The build writes `dist/ModOrderDesyncFix-<version>.zip`.
+4. Workshop uploads use Mega Crit's uploader (github.com/megacrit/sts2-mod-uploader).
