@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--
+      The game runs .NET 9, so the tests do too. Without a .NET 9 runtime they roll forward to a newer
+      one; the game's Harmony refuses to patch there, so the Harmony test reports itself as skipped.
+    -->
+    <TargetFramework>net9.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <AssemblyName>MultiplayerDivergenceResolver.Tests</AssemblyName>
+    <RootNamespace>MultiplayerDivergenceResolver.Tests</RootNamespace>
+    <NoWarn>MSB3277</NoWarn>
+    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Sts2Dir Condition="'$(Sts2Dir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2</Sts2Dir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <!-- Game-free source files are compiled in directly, so the tests never load sts2.dll. -->
+  <ItemGroup>
+    <Compile Include="..\..\src\MultiplayerDivergenceResolver\CanonicalOrder.cs" Link="Linked\CanonicalOrder.cs" />
+    <Compile Include="..\..\src\MultiplayerDivergenceResolver\ContentKey.cs" Link="Linked\ContentKey.cs" />
+    <Compile Include="..\..\src\MultiplayerDivergenceResolver\Patches\PatchOrder.cs" Link="Linked\PatchOrder.cs" />
+  </ItemGroup>
+
+  <!-- The same Harmony build the game ships, so the patch-order test checks real behavior. -->
+  <ItemGroup>
+    <Reference Include="0Harmony" HintPath="$(Sts2Dir)\data_sts2_windows_x86_64\0Harmony.dll" />
+  </ItemGroup>
+
+</Project>
